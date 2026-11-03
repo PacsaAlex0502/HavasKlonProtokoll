@@ -1,12 +1,10 @@
 # HAVAS: KLÓNPROTOKOLL
 
-**Verzió:** 1.1 · **Nyelv:** C# · **Felület:** Windows Forms · **Célkeretrendszer:** .NET Framework 4.8
+**Verzió:** 1.0 · **Nyelv:** C# · **Felület:** Windows Forms · **Célkeretrendszer:** .NET Framework 4.8
 
 **Havas Attila az eredeti. Mindenki más csak másolat.**
 
-C# Windows Forms aréna-akciójáték Havas Attila főszereplésével, a feltöltött portrék felhasználásával. A képeket és a programikonját az EXE tartalmazza. Nincs NuGet-csomag, játékmotor, internetkapcsolat vagy külön letöltendő grafikai elem.
-
-**1.1-es változat:** két új, a feltöltött képekkel megjelenő vendégellenfél került a játékba. **Alkoholista** forgó, zöld, narancssárga címkés Jäger-üvegeket lő Havas Attilára. **Mama** három repülő protkót dob egyszerre, legyező alakban. Mindketten már az első hullámban megjelennek, majd a további hullámokban is visszatérnek. A pillérek blokkolják az új lövedékeket, a Havas-pulzus pedig eltünteti őket. A nevek fiktív játékszerepeket jelölnek.
+C# Windows Forms aréna-akciójáték Havas Attila főszereplésével és feltöltött portréjával. A képeket és a programikonját az EXE tartalmazza. Nincs NuGet-csomag, játékmotor, internetkapcsolat vagy külön letöltendő grafikai elem.
 
 ## Indítás Visual Studióban
 
@@ -30,7 +28,6 @@ Egy fiktív sci-fi klónlaborban Havas Attila másolatai önállósodtak. Az ere
 
 - **3 azonnal elérhető fegyver:** automata karabély, hétszemes sörétes, több ellenfélen átütő sínpuska.
 - **5 klóntípus:** alapklón, gyors rohamklón, távolsági lövész, nagy életű titán, kétfelé osztódó klón.
-- **2 vendégellenfél:** Alkoholista saját üveglövedékekkel és Mama saját protkóival, külön portréval és harci viselkedéssel.
 - **Havas Prím főellenfél:** az 5., 10. és 15. hullámban. Körkörös lövedékek, előre jelzett robbanászónák, második fázis és rohamtámadás.
 - **13 fejlesztés:** hullámok között három véletlen modul közül választhatsz. A bónuszok az adott futam végéig maradnak meg.
 - **Dash és Havas-pulzus:** a dash rövid sérthetetlenséget ad; a pulzus területet sebez és eltünteti a közeli ellenséges lövedékeket.
@@ -80,7 +77,7 @@ A két nehézségi szintnek külön pontrekordja van. Futam közbeni állapotmen
 | Model.cs | Vektorok és játékelemek adattípusai |
 | Audio.cs | Külső hangfájlok nélküli PCM hangeffektek |
 | Profile.cs | Helyi XML-profil mentése |
-| Assets | Havas Attila, Alkoholista és Mama beágyazott portréi és a programikon |
+| Assets | Havas Attila beágyazott portréja és a programikon |
 | tests | Játékmeneti ellenőrzések és Windows tesztindító |
 | Kepernyokepek | A valódi C# renderelővel készített előnézetek |
 
@@ -102,13 +99,13 @@ Az eredmények a tesztablakban jelennek meg. A csomaghoz mellékelt ellenőrzés
 | A Visual Studio nem találja a .NET Framework 4.8 referencia-összeállításait. | Telepítsd a .NET Framework 4.8 célzócsomagot vagy fejlesztői csomagot a Visual Studio Installerből. |
 | A projekt vagy a Windows Forms összetevő nem tölthető be. | Ellenőrizd, hogy a .NET asztali fejlesztés munkaterhelés telepítve van-e. |
 | F5-re másik projekt indul el. | Állítsd a HavasKlonprotokoll projektet indítási projektnek. |
-| A portrék hiányára hivatkozó fordítási hiba jelenik meg. | Csomagold ki a teljes projektet, az `Assets` mappával együtt. A képeket a projekt beágyazott erőforrásként használja. |
+| A portré hiányára hivatkozó fordítási hiba jelenik meg. | Csomagold ki a teljes projektet, az `Assets` mappával együtt. A portrét a projekt beágyazott erőforrásként használja. |
 | Nincs hang. | Az M billentyűvel kapcsold be a hangot, majd ellenőrizd a Windows hangerőkeverőjét. |
 
 Váratlan alkalmazáshibánál a részletes napló helye: `%TEMP%\HavasKlonprotokoll-error.log`.
 
 ## Ellenőrzés és korlátok
 
-A projekt sikeresen lefordult; 32 játékmeneti és 17 WinForms integrációs ellenőrzés sikeres eredménnyel lefutott. A fő képernyőkről a játék saját rajzolójával készültek előnézeti képek. A részletes ellenőrzési lista az **ELLENORZES.md** fájlban van. Az ellenőrzés Linux/Mono környezetben történt, natív Windows/Visual Studio futtatás itt nem volt elérhető. Windowsos hangkimenet és DPI-kezelés ezért külön kézi ellenőrzést igényelhet.
+A projekt sikeresen lefordult; 22 játékmeneti és 15 WinForms integrációs ellenőrzés sikeres eredménnyel lefutott. A fő képernyőkről a játék saját rajzolójával készültek előnézeti képek. A részletes ellenőrzési lista az **ELLENORZES.md** fájlban van. Az ellenőrzés Linux/Mono környezetben történt, natív Windows/Visual Studio futtatás itt nem volt elérhető. Windowsos hangkimenet és DPI-kezelés ezért külön kézi ellenőrzést igényelhet.
 
 A játék egy komplett, egyarénás 2D projekt; a felülete GDI+-szal készül. A hangmotor rövid hangeffekteket játszik le, nem többsávos zenemotor. Külső eszközt vagy 3D motort nem használ.
